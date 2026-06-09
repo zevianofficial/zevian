@@ -27,23 +27,35 @@ overflow-x:hidden;
 body::before{
 content:'';
 position:fixed;
-width:800px;
-height:800px;
-background:radial-gradient(circle,#00e5ff20,transparent 70%);
-top:-200px;
-left:-200px;
+width:900px;
+height:900px;
+background:radial-gradient(circle,#00e5ff25,transparent 70%);
+top:-250px;
+left:-250px;
 z-index:-1;
+animation:float1 10s infinite alternate;
 }
 
 body::after{
 content:'';
 position:fixed;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#7c3aed20,transparent 70%);
-bottom:-200px;
-right:-200px;
+width:800px;
+height:800px;
+background:radial-gradient(circle,#7c3aed25,transparent 70%);
+bottom:-250px;
+right:-250px;
 z-index:-1;
+animation:float2 12s infinite alternate;
+}
+
+@keyframes float1{
+from{transform:translateY(0);}
+to{transform:translateY(50px);}
+}
+
+@keyframes float2{
+from{transform:translateY(0);}
+to{transform:translateY(-50px);}
 }
 
 nav{
@@ -51,18 +63,21 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 8%;
-backdrop-filter:blur(12px);
 position:sticky;
 top:0;
-background:rgba(5,8,22,.7);
+background:rgba(5,8,22,.75);
+backdrop-filter:blur(20px);
 border-bottom:1px solid rgba(255,255,255,.08);
-z-index:1000;
+z-index:999;
 }
 
 .logo{
-font-size:28px;
+font-size:30px;
 font-weight:800;
-letter-spacing:2px;
+letter-spacing:3px;
+background:linear-gradient(90deg,#fff,#00e5ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .menu{
@@ -71,15 +86,15 @@ gap:30px;
 }
 
 .menu a{
-color:white;
 text-decoration:none;
+color:white;
 opacity:.8;
 transition:.3s;
 }
 
 .menu a:hover{
-opacity:1;
 color:#00e5ff;
+opacity:1;
 }
 
 .hero{
@@ -94,30 +109,30 @@ padding:40px;
 
 .badge{
 padding:10px 20px;
-border:1px solid rgba(255,255,255,.15);
 border-radius:999px;
 background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
 margin-bottom:25px;
 }
 
 .hero h1{
-font-size:90px;
+font-size:110px;
 font-weight:800;
-background:linear-gradient(90deg,#fff,#00e5ff);
+background:linear-gradient(90deg,#ffffff,#00e5ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .hero h2{
-font-size:36px;
+font-size:40px;
 margin-top:10px;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .hero p{
-max-width:800px;
-line-height:1.8;
+max-width:850px;
 font-size:20px;
+line-height:1.8;
 color:#bdbdbd;
 margin-bottom:40px;
 }
@@ -130,9 +145,9 @@ justify-content:center;
 }
 
 .btn{
-padding:15px 30px;
+padding:15px 35px;
 border:none;
-border-radius:12px;
+border-radius:14px;
 cursor:pointer;
 font-size:16px;
 font-weight:600;
@@ -141,23 +156,28 @@ transition:.3s;
 
 .primary{
 background:#00e5ff;
-color:#000;
+color:black;
 }
 
 .primary:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
+box-shadow:0 0 25px #00e5ff55;
 }
 
 .secondary{
 background:transparent;
-border:1px solid rgba(255,255,255,.2);
+border:1px solid rgba(255,255,255,.15);
 color:white;
+}
+
+.secondary:hover{
+background:rgba(255,255,255,.08);
 }
 
 .section-title{
 text-align:center;
-font-size:42px;
-margin-bottom:50px;
+font-size:45px;
+margin-bottom:60px;
 }
 
 .features{
@@ -172,16 +192,17 @@ gap:25px;
 
 .card{
 background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
 backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.08);
 padding:30px;
 border-radius:24px;
-transition:.3s;
+transition:.35s;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
 border-color:#00e5ff;
+box-shadow:0 0 30px rgba(0,229,255,.15);
 }
 
 .card h3{
@@ -190,26 +211,26 @@ font-size:22px;
 }
 
 .card p{
-color:#b8b8b8;
-line-height:1.6;
+color:#bdbdbd;
+line-height:1.7;
 }
 
 .stats{
 padding:100px 8%;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
 }
 
 .stat{
-text-align:center;
-background:rgba(255,255,255,.04);
+background:rgba(255,255,255,.05);
 padding:40px;
-border-radius:20px;
+border-radius:22px;
+text-align:center;
 }
 
 .stat h2{
-font-size:42px;
+font-size:50px;
 color:#00e5ff;
 margin-bottom:10px;
 }
@@ -222,27 +243,27 @@ text-align:center;
 .about p{
 max-width:900px;
 margin:auto;
-line-height:1.9;
-color:#bdbdbd;
+line-height:2;
 font-size:18px;
+color:#bdbdbd;
 }
 
 footer{
-margin-top:80px;
 padding:40px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.08);
 color:#888;
+margin-top:80px;
 }
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:55px;
+font-size:60px;
 }
 
 .hero h2{
-font-size:26px;
+font-size:28px;
 }
 
 .menu{
@@ -270,7 +291,7 @@ display:none;
 <section class="hero">
 
 <div class="badge">
-Future AI Ecosystem
+🚀 Future AI Ecosystem
 </div>
 
 <h1>ZEVIAN</h1>
@@ -278,9 +299,9 @@ Future AI Ecosystem
 <h2>Building The Future Of Artificial Intelligence</h2>
 
 <p>
-An ecosystem of intelligent products, cloud infrastructure,
-advanced AI systems, search technology and innovation
-designed for the next generation.
+ZEVIAN is creating a next-generation ecosystem of AI,
+Cloud Computing, Search Technology, Research Labs,
+Developer Tools and Digital Innovation.
 </p>
 
 <div class="buttons">
@@ -292,38 +313,38 @@ designed for the next generation.
 
 <section class="features" id="products">
 
-<h2 class="section-title">Our Ecosystem</h2>
+<h2 class="section-title">ZEVIAN Ecosystem</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>Zevian AI</h3>
-<p>Advanced AI assistants and automation systems.</p>
+<h3>🤖 Zevian AI</h3>
+<p>Powerful AI assistants and intelligent automation systems.</p>
 </div>
 
 <div class="card">
-<h3>Zevian Search</h3>
-<p>Next-generation intelligent search platform.</p>
+<h3>🔍 Zevian Search</h3>
+<p>Fast, smart and context-aware search technology.</p>
 </div>
 
 <div class="card">
-<h3>Zevian Cloud</h3>
-<p>Scalable and secure cloud infrastructure.</p>
+<h3>☁️ Zevian Cloud</h3>
+<p>Scalable cloud infrastructure for future applications.</p>
 </div>
 
 <div class="card">
-<h3>Zevian Mail</h3>
-<p>Professional communication ecosystem.</p>
+<h3>📧 Zevian Mail</h3>
+<p>Secure professional communication ecosystem.</p>
 </div>
 
 <div class="card">
-<h3>Zevian Studio</h3>
-<p>Creative and developer productivity tools.</p>
+<h3>💻 Zevian Studio</h3>
+<p>Developer and creator productivity platform.</p>
 </div>
 
 <div class="card">
-<h3>Zevian Labs</h3>
-<p>Research, innovation and future technologies.</p>
+<h3>🧪 Zevian Labs</h3>
+<p>Research center for future technologies and innovation.</p>
 </div>
 
 </div>
@@ -359,17 +380,16 @@ designed for the next generation.
 <h2 class="section-title">About ZEVIAN</h2>
 
 <p>
-ZEVIAN is building a premium AI ecosystem focused on
-artificial intelligence, search, cloud computing,
-communication, research and next-generation digital
-innovation. Our mission is to create technology that
-empowers individuals, businesses and the future of humanity.
+ZEVIAN is a premium future-focused technology ecosystem
+dedicated to Artificial Intelligence, Search, Cloud Computing,
+Developer Platforms, Research and Global Innovation.
+Our mission is to build technology that empowers humanity.
 </p>
 
 </section>
 
 <footer>
-© 2026 ZEVIAN. All Rights Reserved.
+© 2026 ZEVIAN • Future AI Ecosystem
 </footer>
 
 </body>
